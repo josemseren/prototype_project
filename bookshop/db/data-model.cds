@@ -26,3 +26,14 @@ entity Authors : managed
     name : String(111);
     books : Association to many Books on books.author = $self;
 }
+
+entity Orders : cuid, managed {
+  OrderNo  : String @title:'Order Number'; //> readable key
+  Items    : Composition of many OrderItems on Items.parent=$self;
+}
+
+entity OrderItems {
+  key parent : Association to Orders;
+  key book   : Association to Books;
+  amount     : Integer;
+}

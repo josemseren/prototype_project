@@ -3,3 +3,12 @@ GET http://localhost:4004/catalog/Books?
   # &$select=title,stock
    &$expand=currency
   # &sap-language=de
+
+  ###
+# Submit Order
+# <--------------- no funciona :(   >
+
+POST http://localhost:4004/buy/Orders
+Content-Type: application/json;IEEE754Compatible=true
+
+{ "Items":[{"book_ID":201, "amount":5}]  }
