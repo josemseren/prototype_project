@@ -24,4 +24,5 @@ entity Authors : managed
 {
     key ID : Integer;
     name : String(111);
+    books : Association to many Books on books.author = $self;
 }
